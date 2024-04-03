@@ -62,9 +62,9 @@
                 </ul>
             </div>
             <div class="content_sp">
-                @foreach($sp as $sp)
+                @foreach($sp as $key =>$sp)
                 <div class="sanPham">
-                    <a href="{{ route('sanPhamSauGion') }}" style="text-decoration: none;color: black;">
+                    <a href="{{ URL::to('/san-pham/'.$sp->Slug) }}" style="text-decoration: none;color: black;">
                         <img class="img_SP" src="img/{{$sp->hinhAnh}}" alt="Sấu giòn Tiến Thịnh" >
                         <h4>{{$sp->tenSanPham}}</h4>
                     </a>
@@ -77,7 +77,7 @@
                             <i class="fa-solid fa-star"></i>
                         </span>
                     </i>
-                    <h3>{{$sp->giaBan}}</h3>
+                    <h3>{{number_format($sp->giaBan).' '.'VNĐ'}}</h3>
                 </div>
                 @endforeach
             </div>

@@ -15,9 +15,9 @@ class SanPhamController extends Controller
      */
     public function index()
     {
-        $sanPhams = SanPhamModel::paginate(10); // 10 sản phẩm mỗi trang
+        $sp = SanPhamModel::all(); // 10 sản phẩm mỗi trang
 
-        return view('Admin.sanpham.sp', compact('sanPhams'));
+        return view('Admin.sanpham.sp', compact('sp'));
         // $sp = SanPhamModel::paginate(10);
         // return view('Admin.sanpham.sp',compact('sp'))->with('i',(request()->input('page',1)-1)*5);
     }

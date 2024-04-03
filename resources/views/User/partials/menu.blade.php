@@ -5,8 +5,8 @@
                     <li><a style="padding: 15px 20px;color: white;" href="">DANH MỤC SẢN PHẨM <i style="margin-left: 10px;color: white;" class="far fa-list-alt"></i></a>
                         
                             <ul class="sub-menu">
-                                @foreach($lsp as $lsp)
-                                    <li><a href="{{ route('danhMuc') }}">{{$lsp->tenLoaiSP}}</a></li>
+                                @foreach($lsp as $key =>$lsp)
+                                    <li><a href="{{ URL::to('/danh-muc/'.$lsp->idLoaiSP) }}"></a></li>
                                     <!-- <li><a href="">Mặt hàng đồ khô</a>
                                         <ul class="sub-menu">
                                             <li><a href="">Gạo Nết</a></li>

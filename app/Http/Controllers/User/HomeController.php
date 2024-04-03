@@ -6,13 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\User\HomeModel;
 use App\Models\User\LoaiSanPhamModel;
 use Illuminate\Http\Request;
+use DB;
+use Session;
+use App\Http\Requests;
+use Illuminate\Support\Facade\Redirect;
 
 class HomeController extends Controller
 {
     public function index(){
-        $sp = HomeModel::all();
-        $lsp = LoaiSanPhamModel::all();
-        return view('User.home',compact('sp', 'lsp'));
+        $sp = DB::table('sanpham')->where('Status', '1')->orderby('idSanPham','desc')->get();
+        $lsp = DB::table('loaisanpham')->where('Status', '1')->orderby('idLoaiSP','desc')->get();
+        return view('User.home')->with('sp',$sp)->with('lsp',$lsp);
     }
     public function gioiThieu(){
         $sp = HomeModel::all();
@@ -55,7 +59,5 @@ class HomeController extends Controller
         $lsp = LoaiSanPhamModel::all();
         return view('User.ttkh',compact('sp', 'lsp'));
     }
-    // public function seeAll(){
-    //     return view('User.S')
-    // }
+
 }

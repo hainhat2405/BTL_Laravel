@@ -31,7 +31,7 @@
                             </thead>
                             <tbody>
                                 @php $i = 1; @endphp
-								@foreach($sanPhams as $sp)
+								@foreach($sp as $sp)
 								<tr>
 									<td>{{ $i++ }}</td>
 									<td>{{ $sp->tenSanPham }}</td>
