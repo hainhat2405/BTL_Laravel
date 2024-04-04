@@ -6,7 +6,7 @@
                         
                             <ul class="sub-menu">
                                 @foreach($lsp as $key =>$lsp)
-                                    <li><a href="{{ URL::to('/danh-muc/'.$lsp->idLoaiSP) }}"></a></li>
+                                    <li><a href="{{ URL::to('/danh-muc/'.$lsp->idLoaiSP) }}">{{$lsp->tenLoaiSP}}</a></li>
                                     <!-- <li><a href="">Mặt hàng đồ khô</a>
                                         <ul class="sub-menu">
                                             <li><a href="">Gạo Nết</a></li>

@@ -38,7 +38,7 @@
                 <div class="ketnoifb">
                     <h2>KẾT NỐI FACEBOOK</h2>
                     <div class="img-fb">
-                        <a href="https://www.facebook.com/dacsanhanoithanhphuong/"> <img style="width: 30%;height: 40%; margin-top: 10px;margin-left: 10px;float: left;" src="img/img-DS.jpg" alt="">
+                        <a href="https://www.facebook.com/dacsanhanoithanhphuong/"> <img style="width: 30%;height: 40%; margin-top: 10px;margin-left: 10px;float: left;" src="/img/img-DS.jpg" alt="">
                         </a>
                         <div class="img-chu">
                             <a style=" text-decoration: none;" href="https://www.facebook.com/dacsanhanoithanhphuong/">Đặc Sản Hà Nội Thanh Phương</a>
@@ -60,7 +60,7 @@
             </div>
             <div class="img-bcthuong">
                 <a href="#">
-                    <img style="width: 30%;height: 100%;float: right;" src="img/bocongthuong.png" alt="">
+                    <img style="width: 30%;height: 100%;float: right;" src="/img/bocongthuong.png" alt="">
                 </a>
             </div>
         </div>
@@ -78,6 +78,6 @@
         <!--  -->
         <div class="image">
 
-            <img id="img" onclick="changeImage()" src="img/icon-phone2.png" alt="">
+            <img id="img" onclick="changeImage()" src="/img/icon-phone2.png" alt="">
 
         </div>

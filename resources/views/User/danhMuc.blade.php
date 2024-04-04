@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/DanhMuc.css">
+    <link rel="stylesheet" href="{{ asset('css/DanhMuc.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="img/icon-td.jpg">
+    <link rel="icon" href="/img/icon-td.jpg">
     <title>Bánh Cốm Hà Nội</title>
 </head>
 <body>
@@ -44,26 +44,28 @@
                         <h2 style="padding-left: 115px;"></h2>
                     </div>
                 </div>
-                @foreach($sp as $sp)
+                
                 <div class="content_sp">
-                    @foreach($sp as $sp)
-                        <div class="sanPham">
-                            <a href="{{ route('sanPham') }}"><img class="img_SP" src="img/banhcombaominh.jpg" alt="Bánh Cốm Hà Nội" ></a>
-                            <h4>Bánh Cốm Hà Nội</h4>
-                            <i>Đánh giá:
-                                <span>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                            </i>
-                            <h3>8.000đ</h3>
-                        </div>
-                    @endforeach
+                @foreach($id_LSP as $product)
+                    <div class="sanPham">
+                        <a href="{{ route('sanPham') }}"><img class="img_SP" src="/img/banhcombaominh.jpg" alt="Bánh Cốm Hà Nội" ></a>
+                        <h4>{{$product->tenSanPham}}</h4>
+                        <i>Đánh giá:
+                            <span>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                        </i>
+                        <h3>{{number_format($product->giaBan)." ". "VNĐ"}}</h3>
+                    </div>
+                @endforeach
+
                 </div>
-            @endforeach
+                
+           
         </div>
     </div>
    

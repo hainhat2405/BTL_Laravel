@@ -1,6 +1,6 @@
 <div id="header">
         <div id="img-logo">
-            <a href="{{ route('home') }}"><img src="img/logo_thanh phuong.png" alt="" class="logo"></a>
+            <a href="{{ route('home') }}"><img src="/img/logo_thanh phuong.png" alt="" class="logo"></a>
         </div>
 
         <ul class="main-nav">

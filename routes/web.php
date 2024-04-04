@@ -92,6 +92,9 @@ Route::controller(App\Http\Controllers\User\HomeController::class)->group(functi
     Route::get('/GioHang',  'gioHang')->name('gioHang');
     Route::get('/ThanhToan',  'thanhToan')->name('thanhToan');
     Route::get('/TTKH',  'ttkh')->name('ttkh');
-    // Route::get('san-pham/{Slug}/{idSanPham}',  'show_category_home')->name('index_detailSP');
+});
+
+Route::controller(App\Http\Controllers\User\LSPhamController::class)->group(function(){
+    Route::get('danh-muc/{idLoaiSP}',  'show_category_home')->name('index_detailSP');
     
 });
