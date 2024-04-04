@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/SanPham.css">
+    <link rel="stylesheet" href="{{asset('css/SanPham.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="img/icon-td.jpg">
+    <link rel="icon" href="{{asset('img/icon-td.jpg')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <title> Bánh Cốm Hà Nội - </title>
 </head>
@@ -38,29 +38,30 @@
         </div>
     </div>
     <!-- Begin content -->
+    @foreach($detailSP as $detailSP)
     <div id="content-sanPham" >
 
         <div class="thongTin" >
             <div class="thongTin-1" >
                 <div class="main">
-                    <img src="img/banhcombaominh.jpg" alt="" class="img-feature">
+                    <img src="{{asset('img/banhcombaominh.jpg')}}" alt="" class="img-feature">
                         <div class="control prev"><i class="fa-solid fa-chevron-left" style=" color: white;"></i></i></div>
                         <div class="control next"><i class="fa-solid fa-chevron-right" style=" color: white;"></i></div>
 
                 </div>
-                <div class="list-image">
-                    <div> <img src="img/banhcombaominh.jpg" alt=""></div>
-                    <div><img src="img/banh-com-bao-minh-7-1.jpg" alt=""></div>
-                    <div><img src="img/banh-com-4-2-e1666235165251.jpg" alt=""></div>
+                <!-- <div class="list-image">
+                    <div> <img src="{{asset('img/banhcombaominh.jpg')}}" alt=""></div>
+                    <div><img src="{{asset('img/banh-com-bao-minh-7-1.jpg')}}" alt=""></div>
+                    <div><img src="{{asset('img/banh-com-4-2-e1666235165251.jpg')}}" alt=""></div>
                     <div>  <img src="img/banh-com-bao-minh-1-1 (1).jpg" alt=""></div>
                     <div><img src="img/banh-com-bao-minh-7-2.jpg" alt=""></div>
-                </div>
+                </div> -->
 
             </div>
             <div class="thongTin-2">
 
-                <h1>Bánh Cốm Hà Nội</h1>
-                <h3>10.000 đ</h3>
+                <h1>{{$detailSP->tenSanPham}}</h1>
+                <h3>{{number_format($detailSP->giaBan). " " . "VNĐ"}}</h3>
                 <strong>Tùy chọn loại</strong>
                 <div class="input-soLuong">
                     <div class="soLuong">
@@ -124,141 +125,10 @@
             </div>
 
         </div>
-        <div id="showcart">
-            <div class="showcart-content">
-                  <img src="img/icon-dấu-tích-xanh-400x400.png" alt="">
-                 <h1>Bánh Cốm Hà Nội</h1>
-                 <h4 style="font-size: 24px;">Đã thêm vào giỏ hàng thành công</h4>
-            </div>
-            <div class="actions">
-                 <button class="xemgiohang"><a href="GioHang.html">Xem giỏ hàng</a></button>
-
-                 <button class="ttmuahang"><a href="SanPham.html">Tiếp tục mua hàng</a></button>
-            </div>
-         </div>
-         <!-- <div id="infogioHang">
-            <form action="" method="POST" class="form-group">
-               <table class="tbl-main">
-                    <tr class="tr1">
-                        <th class="tbl1">Ảnh</th>
-                        <th class="tbl2">Sản Phẩm</th>
-                        <th class="tbl3">Số Lượng</th>
-                        <th class="tbl4">Giá</th>
-                        <th class="tbl5"></th>
-                    </tr>
-                    <tbody id="mycart">
-                        <tr class="tr2">
-                            <td class="tbl1">
-                                <img src="img/banhcom.jpg" alt="">
-                            </td>
-                            <td class="tbl2" style="display: inline;">
-                               <div class="tbl2-info">
-                                    <a href="SanPham.html" title="Bánh Cốm Hà Nội" style="width: 100%;font-size: 18px;text-decoration: none;color: red;">Bánh Cốm Hà Nội</a><br><br>
-                                    <strong style="font-size: 18px;">8.000 đ</strong><br><br>
-                                    <span style="color: red;font-size: 18px;">Loại:</span>
-                               </div>
-                            </td>
-                            <td class="tbl3">
-                                <div class="tbl3-icon">
-                                    <i class="fa fa-shopping-basket" style="font-size: 18px;padding: 10px 15px;"></i>
-                                </div>
-                                <div class="tbl3-soLuong">
-                                    <input type="number" name="soluong" min="1" max="100" value="1" style="width: 100%;height: 100%;font-size: 18px;">
-                                </div>
-                            </td>
-                            <td class="tbl4">
-                                8.000 đ
-                            </td>
-                            <td class="tbl5">
-                                <i class="far fa-trash-alt" style="color: red;" onclick="xoasp(this)" ></i>
-                            </td>
-                        </tr>
-                    </tbody>
-               </table>
-            </form>
-
-            <div class="funcGioHang">
-                <a href="GioHang.html"  class="capnhat" style="background: #60b126;padding: 10px;float: left;"><b>&lt;&nbsp;&nbsp;</b> Cập nhật giỏ hàng</a>
-                <button style="background: #60b126;padding: 10px;float: right;border: none;font-size: 18px;" onclick="xoatatca()"><i  class="fa-sharp fa-regular fa-circle-xmark"  style="font-size:14px;margin-right: 5px;"></i>Xóa tất cả</button>
-            </div>
 
 
-        </div> -->
         <div id="content-sp2">
             <div class="content-dmsp">   <!--Danh mục sản phẩm-->
-                <div class="gioiThieu-DMSP">
-                    <h3 class="h3">
-                        <span>Danh mục sản phẩm</span>
-                    </h3>
-                </div>
-                <div class="gioiThieu-DMSP-nd">
-                    <ul>
-                        <li>
-                            <ul class="sub-menu0">
-                                <li>
-                                    <a href="keohanoi.html">Bánh Kẹo Hà Nội <i style="float: right; font-size: small;" class="fa-solid fa-greater-than"></i></a>
-                                </li>
-                            </ul>
-                            <ul class="sub-menu1">
-                                <li>
-                                    <a href="">Bánh Đậu Xanh</a>
-                                </li>
-                                <li>
-                                    <a href="">Bánh Hà Nội</a>
-                                </li>
-                                <li>
-                                    <a href="">Kẹo Hà Nội</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <ul class="sub-menu0">
-                            <li>
-                                <a href="">Chưa Phân Loại  <i style="float: right; font-size: small;" class="fa-solid fa-greater-than"></i></a>
-                            </li>
-                        </ul>
-                        <li>
-                            <ul class="sub-menu0">
-                                <li>
-                                    <a href="">Mặt Hàng Đồ Khô</a>
-                                </li>
-                            </ul>
-                            <ul class="sub-menu1">
-                                <li>
-                                    <a href="">Gạo Nếp</a>
-                                </li>
-                                <li>
-                                    <a href="">Măng, Nấm Khô</a>
-                                </li>
-                                <li>
-                                    <a href="">Mì - Miến - Bánh Đa</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <ul class="sub-menu0">
-                            <li>
-                                <a href="">Chưa Phân Loại  <i style="float: right; font-size: small;" class="fa-solid fa-greater-than"></i></a>
-                            </li>
-                        </ul>
-                        <li>
-                            <ul class="sub-menu0">
-                                <li>
-                                    <a href="">Ô Mai Hà Lam - Tiến Thịnh  <i style="float: right; font-size: small;" class="fa-solid fa-greater-than"></i></a>
-                                </li>
-                            </ul>
-                            <ul class="sub-menu1">
-                                <li>
-                                    <a href="">Ô Mai Hà Lam</a>
-                                </li>
-                                <li>
-                                    <a href="">Ô Mai Tiến Thịnh</a>
-                                </li>
-                                <li>
-                                    <a href="">Sấu và mơ ngâm đường</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
                 <div class="gioiThieu-DMSP">
                     <h3 class="h3">
                         <span>Bài viết mới</span>
@@ -274,7 +144,8 @@
                             </div>
                             <div class="BVM-nd">
                                 <h3>
-                                    5 tác dụng của chanh...</h3>
+                                    5 tác dụng của chanh...
+                                </h3>
                             </div>
                         </div>
                         <div class="BVM2">
@@ -322,8 +193,7 @@
                 </div>
                 <div class="info-ctsp">
                     <div class="noidung">
-                        <h3 style="font-size: 18px;padding: 10px;">Bánh Cốm</h3>
-                        <p><i style="font-weight: 900;font-size: 20px;">Bánh Cốm Hà Nội</i> từ lâu đã trở thành một món đặc sản “dân dã” của người dân Hà Thành. Chiếc bánh được làm từ lúa nếp non, dẻo, bên trong là nhân đậu xanh. Tạo nên vị ngọt dịu, đậm đà với “tinh hoa của đất trời”. Vì thế, hãy cùng mình tìm hiểu về món bánh độc đáo này ngay dưới đây nhé.</p>
+                        {{$detailSP->moTa}}
                         <h2 style="padding: 10px;">1. Giới thiệu về bánh cốm Hà Nội</h2>
                         <p>Bánh cốm đã “tồn tại theo năm tháng” với hàng trăm năm lịch sử, do ông tổ dòng họ Nguyễn Duy ở phố hàng Than. Sau hàng trăm năm, đây vẫn là món đặc sản “dân dã” tại Hà Thành nức tiếng gần xa.</p>
                         <p>Cửa hàng chuyên cung cấp bánh cốm thương hiệu Bảo Minh. Đây là một thương hiệu rất nổi tiếng được nhiều người trong nước và nước ngoài ưa chuộng.</p>
@@ -429,6 +299,7 @@
         </div>
     </div>
     <!-- End content -->
+    @endforeach
 
 
 

@@ -7,24 +7,7 @@
                             <ul class="sub-menu">
                                 @foreach($lsp as $key =>$lsp)
                                     <li><a href="{{ URL::to('/danh-muc/'.$lsp->idLoaiSP) }}">{{$lsp->tenLoaiSP}}</a></li>
-                                    <!-- <li><a href="">Mặt hàng đồ khô</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="">Gạo Nết</a></li>
-                                            <li><a href="">Măng,Nấm Khô</a></li>
-                                            <li><a href="">Mì - Miến - Bánh Đa</a></li>
-                                        </ul>
-                                        <ul class="sub-menu">
-                                            <li><a href="">Bánh Đậu Xanh</a></li>
-                                            <li><a href="">Bánh  Hà Nội</a></li>
-                                            <li><a href="">Kẹo Hà Nội</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">Nhang Bắc Thơm</a></li>
-                                    <li><a href="">Ô mai Hồ Lam - Tiến Thịn</a></li>
-                                    <li><a href="">Quả Phật Thủ</a></li>
-                                    <li><a href="">Thực Phẩm chín</a></li>
-                                    <li><a href="">Trà Thái Nguyên - Trà Các Loại</a></li>
-                                    <li><a href="">Trái Cây Hà Nội</a></li> -->
+                                   
                                     @endforeach
                             </ul>
                         

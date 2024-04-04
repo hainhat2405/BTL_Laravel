@@ -52,7 +52,7 @@
                         <div class="control-group hidden-phone">
                             <label class="control-label" for="textarea2"></label>
                             <div class="controls">
-                                <textarea class="cleditor" id="textarea2" rows="10" cols="30" name='moTa' id='moTa' value="{{$sp->moTa}}"></textarea>
+                                <textarea class="cleditor" id="textarea2" rows="10" cols="30" name='moTa' id='moTa' value="">{{$sp->moTa}}</textarea>
                                 
                             </div>
                         </div>

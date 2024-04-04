@@ -23,18 +23,18 @@
 
     <!-- Begin content -->
 
-    <div class="gioiThieu-tieude">
+    <!-- <div class="gioiThieu-tieude">
         <div class="breadcrumbs">
             <span >
                 <span>
                     <a href="TrangChu.html">Trang chủ</a>
                 </span>
                 &raquo;
-
+                
                 <span>Bánh Cốm Hà Nội</span>
             </span>
         </div>
-    </div>
+    </div> -->
 
     <div id="content-bkhn">
         <div class="content-bkhn1">
@@ -48,7 +48,7 @@
                 <div class="content_sp">
                 @foreach($id_LSP as $product)
                     <div class="sanPham">
-                        <a href="{{ route('sanPham') }}"><img class="img_SP" src="/img/banhcombaominh.jpg" alt="Bánh Cốm Hà Nội" ></a>
+                        <a href="{{ route('sanPham') }}"><img class="img_SP" src="/img/{{$product->hinhAnh}}" alt="Bánh Cốm Hà Nội" ></a>
                         <h4>{{$product->tenSanPham}}</h4>
                         <i>Đánh giá:
                             <span>

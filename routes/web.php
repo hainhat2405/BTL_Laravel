@@ -94,7 +94,15 @@ Route::controller(App\Http\Controllers\User\HomeController::class)->group(functi
     Route::get('/TTKH',  'ttkh')->name('ttkh');
 });
 
+// danh mục sản phẩm
 Route::controller(App\Http\Controllers\User\LSPhamController::class)->group(function(){
     Route::get('danh-muc/{idLoaiSP}',  'show_category_home')->name('index_detailSP');
-    
 });
+
+
+
+//
+Route::controller(App\Http\Controllers\User\SanPhamController::class)->group(function(){
+    Route::get('chi-tiet-san-pham/{idSanPham}',  'show')->name('detail_procduct');
+});
+
