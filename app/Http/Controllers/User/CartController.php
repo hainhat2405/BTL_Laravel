@@ -10,7 +10,7 @@ use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facade\Redirect;
 
-class SanPhamController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,7 +40,11 @@ class SanPhamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lsp = DB::table('loaisanpham')->where('Status', '1')->orderby('idLoaiSP')->get();
+        $idSP = $request->idSP_hidden;
+        $sl = $request->soLuong;
+        $data = DB::table('sanpham')->where('idSanPham',$idSP)->get();
+        return view('User.gioHang',compact('lsp'));
     }
 
     /**
@@ -49,23 +53,9 @@ class SanPhamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($idSanPham)
+    public function show($id)
     {
-        
-        // $sp = DB::table('sanpham')->where('Status', '1')->orderby('idSanPham','desc')->get();
-        $lsp = DB::table('loaisanpham')->where('Status', '1')->orderby('idLoaiSP')->get();
-        $detailSP = DB::table('sanpham')
-            ->join('loaisanpham', 'loaisanpham.idLoaiSP' , '=' , 'sanpham.idLoaiSP' )
-            ->where('sanpham.idSanPham', $idSanPham)
-            ->get();
-            foreach($detailSP as $key => $value){
-                $idLSP = $value->idLoaiSP;
-            }
-            $relate_product = DB::table('sanpham')
-            ->join('loaisanpham', 'loaisanpham.idLoaiSP', '=', 'sanpham.idLoaiSP')
-            ->where('loaisanpham.idLoaiSP', $idLSP)->limit(3)
-            ->get();
-        return view('User.sanPham',compact('lsp','detailSP','relate_product'));
+        //
     }
 
     /**

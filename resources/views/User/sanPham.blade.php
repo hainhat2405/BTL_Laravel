@@ -44,7 +44,7 @@
         <div class="thongTin" >
             <div class="thongTin-1" >
                 <div class="main">
-                    <img src="{{asset('img/banhcombaominh.jpg')}}" alt="" class="img-feature">
+                    <img src="/img/{{$detailSP->hinhAnh}}" alt="" class="img-feature">
                         <div class="control prev"><i class="fa-solid fa-chevron-left" style=" color: white;"></i></i></div>
                         <div class="control next"><i class="fa-solid fa-chevron-right" style=" color: white;"></i></div>
 
@@ -60,21 +60,24 @@
             </div>
             <div class="thongTin-2">
 
-                <h1>{{$detailSP->tenSanPham}}</h1>
-                <h3>{{number_format($detailSP->giaBan). " " . "VNĐ"}}</h3>
-                <strong>Tùy chọn loại</strong>
-                <div class="input-soLuong">
-                    <div class="soLuong">
-                        <span>Số Lượng</span>
+                <form action="{{URL::to('/save-cart')}}" method="post">
+                    {{csrf_field()}}
+                    <h1>{{$detailSP->tenSanPham}}</h1>
+                    <h3>{{number_format($detailSP->giaBan). " " . "VNĐ"}}</h3>
+                    <strong>Loai:{{$detailSP->tenLoaiSP}}</strong>
+                    <div class="input-soLuong">
+                        <div class="soLuong">
+                            <span>Số Lượng</span>
+                        </div>
+                        <input  type="number" name="soLuong" min="1" max="100" value="1"  style="width: 72%;height: 100%;padding: 0.375rem 0.75rem;">
+                        <input  type="hidden" name="idSP_hidden" value="{{$detailSP->idSanPham}}"  style="width: 72%;height: 100%;padding: 0.375rem 0.75rem;">
                     </div>
-                    <input type="number" name="soLuong" min="1" max="100" value="1"  style="width: 72%;height: 100%;padding: 0.375rem 0.75rem;">
-                </div>
-                <button class="btn1"><a href="">
-                        <i class="fa-solid fa-phone fa-rotate-270"></i>
-                        <span>Đặt hàng ngay</span>
-                    </a></button>
-                <button class="btn2"  onclick="themvaogiohang(this),showcart()">Thêm vào giỏ</span>
-                    </button>
+                    <button class="btn1"><a href="">
+                            <i class="fa-solid fa-phone fa-rotate-270"></i>
+                            <span>Đặt hàng ngay</span>
+                        </a></button>
+                    <button type="submit" class="btn2"  onclick="themvaogiohang(this),showcart()">Thêm vào giỏ</span></button>
+                </form>
 
                 <div id="share">
                     <span>SHARE:</span>
@@ -229,16 +232,19 @@
                     </div>
 
                 </div>
-                <div class="splq">
+                
+            </div>
+            <div class="splq">
                     <h3 class="h3">
                         <span>Sản Phẩm Liên Quan</span>
                     </h3>
                 </div>
                 <div class="sP-splq">
+                    @foreach($relate_product as $rlt_product)
                     <div class="sP1">
                         <div class="sP-img">
                             <img src="img/banhdauxanhrongvang.jpg" alt="">
-                            <span style="padding-top: 10px;">Bánh Đậu Xanh Minh Ngọc Hộp Lớn</span>
+                            <span style="padding-top: 10px;">{{$rlt_product->tenSanPham}}</span>
 
                         </div>
                         <div class="sP-danhGia">
@@ -251,51 +257,11 @@
                             </span>
                         </div>
                         <div class="sP-giaTien">
-                            <h4>55.000 đ</h4>
+                            <h4>{{number_format($rlt_product->giaBan)}}</h4>
                         </div>
                     </div>
-                    <div class="sP2">
-                        <a href="">
-                            <div class="sP-img">
-                                <img src="img/banhdauxanhrongvangvau.jpg" alt="">
-                                <span>Bánh Đậu Xanh Minh Ngọc Hộp Vừa</span>
-                            </div>
-                        </a>
-                        <div class="sP-danhGia">
-                            <i>Đánh giá:</i>
-                            <span>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </span>
-                        </div>
-                        <div class="sP-giaTien">
-                            <h4>50.000 đ</h4>
-                        </div>
-                    </div>
-                    <div class="sP3">
-                        <a href="">
-                            <div class="sP-img">
-                                <img src="img/banh-cay-1-2.jpg" alt="">
-                                <span>Bánh Cáy Làng Nguyễn</span>
-                            </div>
-                        </a>
-                        <div class="sP-danhGia">
-                            <i>Đánh giá:</i>
-                            <span>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </span>
-                        </div>
-                        <div class="sP-giaTien">
-                            <h4>45.000 đ</h4>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-            </div>
         </div>
     </div>
     <!-- End content -->

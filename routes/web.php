@@ -105,4 +105,7 @@ Route::controller(App\Http\Controllers\User\LSPhamController::class)->group(func
 Route::controller(App\Http\Controllers\User\SanPhamController::class)->group(function(){
     Route::get('chi-tiet-san-pham/{idSanPham}',  'show')->name('detail_procduct');
 });
+Route::controller(App\Http\Controllers\User\CartController::class)->group(function(){
+    Route::post('save-cart',  'store')->name('cart_product');
+});
 
